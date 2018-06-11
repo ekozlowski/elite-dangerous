@@ -13,7 +13,7 @@ import sqlite3
 #
 # For now, I think it's safe just to have an event handler that can dispatch
 # to the proper classes for updating things.
-
+import json
 
 class EventHandler:
 
@@ -23,6 +23,7 @@ class EventHandler:
     event_subscriptions = {}
 
     def process_event(self, event_data):
+        event_data = json.loads(event_data)
         event_name = event_data.get("event")
         subscribers = self.event_subscriptions.get(event_name, [])
         for s in subscribers:
