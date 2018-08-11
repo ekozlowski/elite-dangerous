@@ -5,10 +5,14 @@ import dockingHandler
 import fsdJumpHandler
 import marketHandler
 
+def add_handlers():
+    dockingHandler()
+    fsdJumpHandler()
+    marketHandler()
+
 def main_loop():
     while True:
         time.sleep(3)
-        #print("Heartbeat -> ", time.time())
         for event in get_events():
             try:
                 eventHandler.process_event(event)
@@ -19,5 +23,6 @@ def main_loop():
 
 
 if __name__ == "__main__":
+    add_handlers()
     main_loop()
 

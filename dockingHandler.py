@@ -1,7 +1,11 @@
 from eventHandler import EventSubscriber
 from dao import update_station
 
+
 class DockingHandler(EventSubscriber):
+    """
+    Handles the docking event, fired when a ship docks in a starport.
+    """
     name = "Docked"
 
     def send(self, event_data):
@@ -12,5 +16,4 @@ class DockingHandler(EventSubscriber):
             market_id=event_data.get('MarketID')
         )
 
-dh = DockingHandler()
 

@@ -2,6 +2,7 @@ from eventHandler import EventSubscriber
 from dao import update_star_system
 import boto3
 
+
 def update_page(star_system):
     s3 = boto3.resource('s3')
     out = f"""
@@ -22,8 +23,6 @@ class FSDJumpHandler(EventSubscriber):
 
     def send(self, event_data):
         print("Handling Shutdown")
-        # handle the Shutdown event.
-        # What I'd like to do is somehow indicate an offline status to the 'elite_lcoation.html' page.
         star_system = event_data.get('StarSystem')
         system_address = event_data.get('SystemAddress')
         x_pos, y_pos, z_pos = event_data.get('StarPos')

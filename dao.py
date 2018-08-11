@@ -205,12 +205,13 @@ def get_star_systems_within_radius(star_system, radius):
 for sql in INITIAL_SQL_STATEMENTS:
     execute_sql(sql)
 
-radius = 10
-star_systems = get_star_systems_within_radius("Hsinga", radius)
-if star_systems is None:
-    print("No star systems found... :( ")
-else:
-    print(len(star_systems), f"known star systems are within {radius} LY")
-    for s in star_systems:
-        print(s)
+if __name__ == "__main__"
+    radius = 10
+    star_systems = get_star_systems_within_radius("Hsinga", radius)
+    if star_systems is None:
+        print("No star systems found... :( ")
+    else:
+        print(len(star_systems), f"known star systems are within {radius} LY")
+        for s in star_systems:
+            print(s)
 

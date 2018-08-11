@@ -1,9 +1,8 @@
-
 import os
 import config
 import json
-
 import time
+
 
 class EventFile:
 
@@ -27,7 +26,6 @@ class EventFile:
         return self.metadata.get("st_mtime") != os.stat(self.path).st_mtime
 
     def get_events(self):
-        # seek to the last position read
         if not self.has_been_modified():
             return
         fp = open(self.path, 'r')
@@ -41,15 +39,14 @@ class EventFile:
             yield line
             line = fp.readline()
 
+
 def get_events():
     begin = time.time()
     files = os.listdir(config.ELITE_LOG_DIR)
-    #print(len(files))
     files = [x for x in files if x.endswith('.log')]
-    #print(files)
     for f in files:
         ef = EventFile(os.path.join(config.ELITE_LOG_DIR, f))
         for event in ef.get_events():
             yield event.strip()
     end = time.time()
-    #print("Event feed completed in %.02f seconds." % (end - begin,))
+    print("Event feed completed in %.02f seconds." % (end - begin,))

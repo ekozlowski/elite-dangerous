@@ -6,6 +6,7 @@ import json
 import os
 import config
 
+
 class MarketHandler(EventSubscriber):
     name = "Market"
 
@@ -27,4 +28,3 @@ class MarketHandler(EventSubscriber):
         print(market_data.get('MarketID'))
         update_items(market_data.get('MarketID'), market_data.get('Items'))
 
-marketHandler = MarketHandler()
