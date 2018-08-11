@@ -6,6 +6,8 @@
 Welcome to Elite Dangerous Data Analysis's documentation!
 =========================================================
 
+Changing, just for demo :)
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
